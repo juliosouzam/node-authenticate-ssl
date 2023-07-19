@@ -27,7 +27,6 @@ app.get('/', (req, res) => {
 app.get('/authenticate', (req, res) => {
   const socket = req.socket as tls.TLSSocket;
   const cert = socket.getPeerCertificate();
-
   if (socket.authorized) {
     res.send(
       `Hello ${cert.subject.CN}, your certificate was issued by ${cert.issuer.CN}!`
